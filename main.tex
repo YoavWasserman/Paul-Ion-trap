@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{polyglossia}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{amsmath} 
+\usepackage{xcolor}
+\usepackage{amssymb} 
+\usepackage{nameref}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{references.bib}
+\setmonofont{FreeMono}
+\usepackage{caption}
+\usepackage{ragged2e}
+\usepackage{float}
+\usepackage{multicol}
+\makeatletter
+
+\usepackage{listings}
+
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}  
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
+\newfontfamily\hebrewfontsf[Script=Hebrew]{Miriam CLM}
+
+\makeatletter
+
+\DeclareCiteCommand{\mycite}
+  {\usebibmacro{prenote}}
+  {\printnames{author} \bibhyperref{\mkbibbrackets{\printfield{labelnumber}}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\urlcite}
+  {\usebibmacro{prenote}}
+  {\printnames{author},
+   \textit{\printfield{title}},
+   \printfield{year}.
+   \bibhyperref{\mkbibbrackets{\printfield{labelnumber}}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    xleftmargin=2em
+}
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{קטע קוד}
+
+\newlength{\fnrulewidth}
+\setlength{\fnrulewidth}{\textwidth}
+\renewcommand{\footnoterule}{%
+  \kern-3pt
+  \hbox to \fnrulewidth{\hfill\rule{2in}{0.4pt}}%
+  \kern2.6pt
+}
+
+
+\begin{document}
+%\onecolumn
+\noindent
+{\LARGE \textbf{
+כותרת כלשהי
+}} \\[0.5cm]
+{\large יואב וסרמן ת"ז- 313249039
+\noindent\\
+אדר שרבי ת"ז- 216716472}\\
+{\large \today}\\
+
+
+
+
+\section*{}
+% ראיתי במאמר של חזי שהוא כתב את התקציר בלי כותרת לתקציר אז אפשר להשאיר את זה ככה 
+
+כאן יהיה התקציר 
+
+
+\vspace{0.5cm}
+\begin{multicols}{2}
+\section*{מבוא}
+\section{רקע תיאורטי}
+
+\section{מלכודת יונים טבעתית}
+\subsection{מערכת הניסוי}
+\subsection{תיאור מהלך הניסוי}
+\subsection{תוצאות}
+
+\section{מלכודת יונים לחלקיק יחיד}
+\subsection{מערכת הניסוי}
+\subsection{תיאור מהלך הניסוי}
+\subsection{תוצאות}
+
+\section{מלכודת יונים לינארית}
+\subsection{מערכת הניסוי}
+\subsection{תיאור מהלך הניסוי}
+\subsection{תוצאות}
+
+
+\section{דיון ומסקנות}
+
+
+\newpage
+\section*{ביבליוגרפיה}
+
+\begin{LTR}
+\printbibliography[heading=none]
+\end{LTR}
+
+\appendix
+\renewcommand{\thesection}{\alph{section}}
+\section{נספחים}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\figurename}{נספח}
+
+\end{multicols}
+
+
+\end{document}
+
+
